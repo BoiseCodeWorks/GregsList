@@ -1,12 +1,10 @@
-import CarController from "./Controllers/CarController.js";
+import CarsController from "./Controllers/CarsController.js";
 
 
 class App {
-    constructor() {
-        this.controllers = {
-            carCtrl: new CarController()
-        }
-    }
+
+    carsController = new CarsController()
+
 }
 
 window['app'] = new App()

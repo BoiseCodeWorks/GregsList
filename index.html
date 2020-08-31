@@ -16,13 +16,17 @@
             <div class="col-12">
                 <h1>Gregs-List*</h1>
                 <p>
-                    <sm>*No relation to Craig</sm>
+                    <sup>*No relation to Craig</sup>
                 </p>
             </div>
         </header>
         <main class="row">
             <div class="col-12">
-                <form class="d-flex" onsubmit='app.controllers.carCtrl.addCar(event)'>
+                <div>
+                    <button onclick="app.carsController.toggleCarForm()" class="btn btn-info">Add a Car</button>
+                </div>
+                <form class="d-flex justify-content-around fade" id="car-form"
+                    onsubmit='app.carsController.addCar(event)'>
                     <div class="form-group">
                         <label for="make">Make</label>
                         <input type="text" class="form-control" id="make" placeholder="Make" name="make"> <button
@@ -54,7 +58,7 @@
             <div class="col-12">
                 <h3>Available Cars</h3>
                 <hr>
-                <div class="row" id="cars-cards">
+                <div class="card-columns" id="cars-cards">
 
                 </div>
             </div>

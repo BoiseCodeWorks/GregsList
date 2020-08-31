@@ -1,23 +1,15 @@
-import CarService from "../Services/CarService.js";
+import { carsService } from "../Services/CarsService.js";
 
-//Private
-let _cs = new CarService()
-
-function _draw() {
-    let cars = _cs.Cars
+function _drawCars() {
     let template = ''
-    cars.forEach(c => template += c.Template)
+    // TODO get all the cars
     document.getElementById('cars-cards').innerHTML = template
 }
 
 //Public
 export default class CarController {
     constructor() {
-        //NOTE Register all subscribers
-        _cs.addSubscriber('cars', _draw)
-
-        //NOTE Retrieve data
-        _cs.getApiCars();
+        // TODO Register all subscribers
     }
 
     addCar(e) {
@@ -31,29 +23,18 @@ export default class CarController {
             price: form.price.value,
             description: form.description.value
         }
-        _cs.addCar(data)
+        carsService.addCar(data)
         form.reset()
-
     }
 
     delete(id) {
-        if (window.confirm('Are you sure?')) {
-            _cs.deleteCar(id)
-        }
-    }
-    bid(id) {
-        _cs.bid(id)
+        // if (window.confirm('Are you sure?')) {
+        //     _cs.deleteCar(id)
+        // }
     }
 
-
-
-
-
-
-
-
-
-
-
+    toggleCarForm() {
+        document.getElementById('car-form').classList.toggle("fade")
+    }
 
 }
